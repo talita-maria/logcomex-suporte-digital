@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LogComex CS · Oportunidades FAQ & Automação</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lc-purple:  #6613D0;
+  --lc-purple2: #AA72F2;
+  --lc-purple3: #C6A1F6;
+  --lc-orange:  #FD8101;
+  --lc-orange2: #FE9A33;
+  --lc-orange3: #FEB366;
+  --lc-green:   #27D780;
+  --lc-green2:  #52DF99;
+  --lc-teal:    #1DA6AE;
+  --lc-teal2:   #24CFDA;
+  --lc-yellow:  #FCD035;
+  --lc-magenta: #C00BAE;
+  --lc-red:     #F90505;
+  --lc-red2:    #FA3737;
+
+  --bg:      #0F0A1E;
+  --surf:    #19112E;
+  --surf2:   #221839;
+  --surf3:   #2A1F40;
+  --border:  #2E2050;
+  --border2: #3A2860;
+  --text:    #F1EEF9;
+  --muted:   #9B90B8;
+  --faint:   #160E28;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  padding: 32px 30px 80px;
+  max-width: 1380px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 24px; margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+}
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-icon {
+  width: 44px; height: 44px;
+  background: linear-gradient(135deg, var(--lc-purple), var(--lc-purple2));
+  clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 18px; color: #fff;
+}
+.brand-name { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+.brand-name span { color: var(--lc-orange); }
+.brand-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.meta-pill {
+  display: inline-block;
+  background: rgba(102,19,208,0.15);
+  border: 1px solid rgba(102,19,208,0.3);
+  color: var(--lc-purple3);
+  font-size: 11px; font-weight: 500;
+  padding: 4px 14px; border-radius: 20px; margin-bottom: 4px;
+}
+
+/* SECTION */
+.section {
+  display: flex; align-items: center; gap: 12px;
+  margin: 32px 0 16px;
+}
+.section-num {
+  background: var(--lc-purple);
+  color: #fff; font-size: 10px; font-weight: 700;
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.section h2 { font-size: 14px; font-weight: 600; letter-spacing: -0.3px; }
+.section::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.section-tag {
+  font-size: 10px; color: var(--muted);
+  background: var(--surf2); border: 1px solid var(--border);
+  padding: 2px 10px; border-radius: 12px;
+}
+
+/* GRIDS */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+.g4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 12px; margin-bottom: 16px; }
+
+/* CARD */
+.card {
+  background: var(--surf);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  position: relative; overflow: hidden;
+}
+.ca { position: absolute; top: 0; left: 0; right: 0; height: 2px; border-radius: 10px 10px 0 0; }
+.ca-p  { background: linear-gradient(90deg, #5410A8, var(--lc-purple)); }
+.ca-o  { background: linear-gradient(90deg, #C06000, var(--lc-orange)); }
+.ca-g  { background: linear-gradient(90deg, #1A9458, var(--lc-green)); }
+.ca-t  { background: linear-gradient(90deg, #156E74, var(--lc-teal)); }
+.ca-y  { background: linear-gradient(90deg, #C99D02, var(--lc-yellow)); }
+.ca-m  { background: linear-gradient(90deg, #8B0080, var(--lc-magenta)); }
+.ca-r  { background: linear-gradient(90deg, #B00000, var(--lc-red)); }
+
+.ctitle {
+  font-size: 9px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--muted); margin-bottom: 14px;
+}
+
+/* KPI */
+.kpi-v { font-size: 38px; font-weight: 700; letter-spacing: -2px; line-height: 1; }
+.kpi-sub { font-size: 10px; color: var(--muted); margin-top: 6px; line-height: 1.7; }
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; }
+th {
+  font-size: 9px; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--muted); padding: 7px 10px;
+  text-align: left; border-bottom: 1px solid var(--border);
+  font-weight: 600;
+}
+td { padding: 8px 10px; font-size: 11.5px; border-bottom: 1px solid var(--faint); vertical-align: middle; }
+tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: rgba(255,255,255,0.02); }
+
+/* BADGES */
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 600; }
+.b-p  { background: rgba(102,19,208,0.15); color: var(--lc-purple3); border: 1px solid rgba(102,19,208,0.3); }
+.b-o  { background: rgba(253,129,1,0.12);  color: var(--lc-orange2); border: 1px solid rgba(253,129,1,0.3); }
+.b-g  { background: rgba(39,215,128,0.12); color: var(--lc-green2);  border: 1px solid rgba(39,215,128,0.3); }
+.b-t  { background: rgba(29,166,174,0.12); color: var(--lc-teal2);   border: 1px solid rgba(29,166,174,0.3); }
+.b-y  { background: rgba(252,208,53,0.12); color: var(--lc-yellow);  border: 1px solid rgba(252,208,53,0.3); }
+.b-r  { background: rgba(249,5,5,0.10);   color: var(--lc-red2);    border: 1px solid rgba(249,5,5,0.25); }
+.b-m  { background: rgba(192,11,174,0.12); color: #F33EE1;           border: 1px solid rgba(192,11,174,0.3); }
+.b-mu { background: rgba(155,144,184,0.1); color: var(--muted);      border: 1px solid var(--border); }
+
+/* IB */
+.ib { border-radius: 8px; padding: 10px 14px; font-size: 11px; line-height: 1.7; margin-top: 12px; }
+.ib-p { background: rgba(102,19,208,0.06); border: 1px solid rgba(102,19,208,0.2); border-left: 3px solid var(--lc-purple); }
+.ib-o { background: rgba(253,129,1,0.06);  border: 1px solid rgba(253,129,1,0.2);  border-left: 3px solid var(--lc-orange); }
+.ib-g { background: rgba(39,215,128,0.06); border: 1px solid rgba(39,215,128,0.2); border-left: 3px solid var(--lc-green); }
+.ib-t { background: rgba(29,166,174,0.06); border: 1px solid rgba(29,166,174,0.2); border-left: 3px solid var(--lc-teal); }
+.ib-y { background: rgba(252,208,53,0.06); border: 1px solid rgba(252,208,53,0.2); border-left: 3px solid var(--lc-yellow); }
+.ib-r { background: rgba(249,5,5,0.06);    border: 1px solid rgba(249,5,5,0.2);    border-left: 3px solid var(--lc-red); }
+.ib strong { color: var(--lc-orange); }
+.ib b      { color: var(--lc-purple3); }
+.ib em     { color: var(--lc-green); font-style: normal; font-weight: 600; }
+
+/* HBAR */
+.hbar { display: grid; grid-template-columns: 160px 1fr 55px; align-items: center; gap: 10px; margin-bottom: 7px; }
+.hbar-sm { grid-template-columns: 130px 1fr 50px; }
+.hbar-track { height: 10px; background: var(--surf3); border-radius: 3px; overflow: hidden; }
+.hbar-fill { height: 100%; border-radius: 3px; }
+.hbar-label { font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hbar-val { font-size: 10px; font-weight: 600; color: var(--muted); text-align: right; font-family: monospace; }
+
+/* TREND MINI */
+.trend { display: flex; align-items: flex-end; gap: 3px; height: 32px; }
+.trend-bar { border-radius: 2px 2px 0 0; min-width: 16px; flex: 1; }
+.trend-labels { display: flex; justify-content: space-between; margin-top: 2px; }
+.trend-lbl { font-size: 7px; color: var(--muted); flex: 1; text-align: center; }
+
+/* PRIORITY TAG */
+.pri { font-size: 9px; padding: 2px 8px; border-radius: 10px; font-weight: 700; display: inline-block; }
+.pri-1 { background: rgba(249,5,5,0.15);    color: var(--lc-red2); }
+.pri-2 { background: rgba(253,129,1,0.15);  color: var(--lc-orange2); }
+.pri-3 { background: rgba(252,208,53,0.15); color: var(--lc-yellow); }
+.pri-4 { background: rgba(39,215,128,0.15); color: var(--lc-green2); }
+
+/* TYPE TAG */
+.type-tag { font-size: 9px; padding: 2px 8px; border-radius: 10px; font-weight: 600; display: inline-block; }
+.tt-ss   { background: rgba(102,19,208,0.15); color: var(--lc-purple3); }
+.tt-faq  { background: rgba(29,166,174,0.15); color: var(--lc-teal2); }
+.tt-ux   { background: rgba(39,215,128,0.15); color: var(--lc-green2); }
+.tt-api  { background: rgba(253,129,1,0.15);  color: var(--lc-orange2); }
+.tt-notif{ background: rgba(252,208,53,0.15); color: var(--lc-yellow); }
+
+/* OPPORTUNITY CARD */
+.opp-card {
+  background: var(--surf2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+  display: grid;
+  grid-template-columns: 28px 1fr auto;
+  gap: 14px;
+  align-items: start;
+}
+.opp-num {
+  width: 28px; height: 28px;
+  background: linear-gradient(135deg, var(--lc-purple), var(--lc-purple2));
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 800; color: #fff;
+  flex-shrink: 0;
+}
+.opp-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.opp-meta { font-size: 10px; color: var(--muted); line-height: 1.8; }
+.opp-meta b { color: var(--text); }
+.opp-action {
+  font-size: 10px; color: var(--muted); line-height: 1.7;
+  background: var(--faint); border-radius: 6px; padding: 8px 12px;
+  border-left: 2px solid var(--lc-green);
+  min-width: 220px;
+}
+.opp-action strong { color: var(--lc-green); display: block; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 3px; }
+.opp-right { display: flex; flex-direction: column; gap: 6px; align-items: flex-end; min-width: 90px; }
+
+/* TREND DIRECTION */
+.trend-up   { color: var(--lc-red2); font-size: 11px; font-weight: 700; }
+.trend-dn   { color: var(--lc-green2); font-size: 11px; font-weight: 700; }
+.trend-st   { color: var(--lc-yellow); font-size: 11px; font-weight: 700; }
+
+/* SUMMARY BAR */
+.sum-bar { display: flex; height: 24px; border-radius: 5px; overflow: hidden; gap: 1px; margin: 10px 0 6px; }
+.sum-seg { height: 100%; display: flex; align-items: center; padding: 0 8px; font-size: 9px; font-weight: 700; color: #fff; white-space: nowrap; min-width: 2px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <div class="brand-icon">L</div>
+    <div>
+      <div class="brand-name">Log<span>comex</span> CS</div>
+      <div class="brand-sub">Oportunidades de FAQ & Automação · Dez/2025 – Mar/2026 · Base HubSpot</div>
+    </div>
+  </div>
+  <div style="text-align:right;">
+    <div class="meta-pill">2.976 tickets humanos analisados</div>
+    <div style="font-size:10px;color:var(--muted);margin-top:4px;">Gerado em 10/03/2026</div>
+  </div>
+</header>
+
+<!-- SUMÁRIO -->
+<div class="section"><div class="section-num">0</div><h2>Visão Geral do Potencial</h2><span class="section-tag">Estimativa de deflexão</span></div>
+
+<div class="g4">
+  <div class="card">
+    <div class="ca ca-p"></div>
+    <div class="ctitle">Temas candidatos</div>
+    <div class="kpi-v" style="color:var(--lc-purple2);">14</div>
+    <div class="kpi-sub">temas com vol ≥10 e<br>≥30% de natureza Dúvida</div>
+  </div>
+  <div class="card">
+    <div class="ca ca-o"></div>
+    <div class="ctitle">Tickets evitáveis (dúvidas)</div>
+    <div class="kpi-v" style="color:var(--lc-orange);">522</div>
+    <div class="kpi-sub">dúvidas nos top 15 temas<br>17,5% do volume humano total</div>
+  </div>
+  <div class="card">
+    <div class="ca ca-g"></div>
+    <div class="ctitle">Volume total envolvido</div>
+    <div class="kpi-v" style="color:var(--lc-green);">1.226</div>
+    <div class="kpi-sub">tickets nos temas candidatos<br>41% do volume humano</div>
+  </div>
+  <div class="card">
+    <div class="ca ca-y"></div>
+    <div class="ctitle">Res. média atual nesses temas</div>
+    <div class="kpi-v" style="color:var(--lc-yellow);">104h</div>
+    <div class="kpi-sub">tempo que poderia ser<br>eliminado com self-service</div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom:16px;">
+  <div class="ca ca-p"></div>
+  <div class="ctitle">Composição atual do volume humano — onde estão as dúvidas</div>
+  <div class="sum-bar">
+    <div class="sum-seg" style="width:35.1%;background:var(--lc-purple);">Problema · 35,1%</div>
+    <div class="sum-seg" style="width:27,7%;background:var(--lc-purple2);">Dúvida · 27,7%</div>
+    <div class="sum-seg" style="width:12,4%;background:var(--lc-teal);">Instabilidade · 12,4%</div>
+    <div class="sum-seg" style="width:9.3%;background:var(--lc-orange);">Insatisfação · 9,3%</div>
+    <div class="sum-seg" style="width:15.4%;background:var(--surf3);">Outros · 15,5%</div>
+  </div>
+  <div style="font-size:10px;color:var(--muted);">825 dúvidas no total (27,7% dos tickets humanos) — cada uma é um ticket que poderia ser evitado com FAQ, self-service ou melhoria de UX.</div>
+  <div class="ib ib-g"><em>Meta realista de deflexão:</em> resolver 60% das dúvidas dos top 14 temas via FAQ/self-service = <strong>~313 tickets/período eliminados</strong>, sem contratar mais pessoas.</div>
+</div>
+
+<!-- OPORTUNIDADES TIER 1 -->
+<div class="section"><div class="section-num">1</div><h2>Tier 1 — Self-Service Imediato</h2><span class="section-tag">Alta dúvida · baixa complexidade · impacto rápido</span></div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Temas onde o cliente só precisa de orientação ou de uma ação simples que poderia ser feita sozinho. ROI em semanas.</div>
+
+<!-- OPP 1 -->
+<div class="opp-card">
+  <div class="opp-num">1</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Two Factor / MFA + Troca de Telefone</div>
+      <span class="type-tag tt-ss">Self-service</span>
+      <span class="pri pri-1">🔴 Prioridade máxima</span>
+    </div>
+    <div class="opp-meta">
+      <b>89 tickets</b> no período · <b>Two Factor: 70 tickets MFA + 4 dúvidas</b> · <b>Troca de telefone: 12 dúvidas + 42 problemas</b><br>
+      Solução típica: <i>"Telefone resetado para acesso"</i> ou <i>"Two factor desabilitado temporariamente"</i> — ação manual de 30 segundos feita pelo agente.<br>
+      Tendência: Two Factor subiu de 23 (dez) → 43 (jan) → 20 (fev). Troca de telefone estável em ~30/mês.<br>
+      <b>Produto principal:</b> Plataforma (acesso geral)
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">89 tickets</span>
+    <span class="badge b-r">Res. mediana: 22h</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Painel do guardião para resetar MFA e telefone sem abrir ticket. Já existe lógica de reset — só precisa de interface. Elimina 100% dos tickets de troca de telefone e ~80% dos MFA.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 2 -->
+<div class="opp-card">
+  <div class="opp-num">2</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Cadastrar usuário + Ignorar CPF</div>
+      <span class="type-tag tt-ss">Self-service</span>
+      <span class="pri pri-1">🔴 Prioridade máxima</span>
+    </div>
+    <div class="opp-meta">
+      <b>114 tickets combinados</b> · Cadastrar usuário: 47 dúvidas (54,7%) · Ignorar CPF: 21 problemas + 2 dúvidas<br>
+      Dúvidas: cliente não sabe os campos obrigatórios. Problemas de CPF: tentativa de cadastro com CPF inválido ou duplicado sem mensagem clara de erro.<br>
+      Volume crescendo: Cadastrar usuário subiu de 24 (dez) → 27 (jan) → 28 (fev).<br>
+      <b>Produto:</b> Plataforma (todos os produtos)
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">114 tickets</span>
+    <span class="badge b-y">Res. mediana: 29h</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Wizard guiado de cadastro com validação de CPF inline e mensagem de erro descritiva. Um tooltip "campos obrigatórios" no formulário já resolve metade das dúvidas.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 3 -->
+<div class="opp-card">
+  <div class="opp-num">3</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Alteração / Recuperação de senha</div>
+      <span class="type-tag tt-ss">Self-service</span>
+      <span class="pri pri-1">🔴 Prioridade máxima</span>
+    </div>
+    <div class="opp-meta">
+      <b>57 tickets</b> · <b>42% dúvida</b> · resolução mediana 37h · sem insatisfação registrada<br>
+      Tendência cadente (22 → 21 → 11) — mas ainda 4 tickets/semana evitáveis.<br>
+      Natureza: cliente não encontra o fluxo de reset ou não sabe que pode fazer sozinho.<br>
+      <b>Produto:</b> Plataforma (acesso geral)
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">57 tickets</span>
+    <span class="badge b-g">↘ Caindo</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Link "Esqueci minha senha" mais visível na tela de login. Se já existe, melhorar descobrimento. Verificar se fluxo funciona para todos os tipos de conta (SSO vs senha direta).
+    </div>
+  </div>
+</div>
+
+<!-- OPP 4 -->
+<div class="opp-card">
+  <div class="opp-num">4</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Falha de acesso à plataforma</div>
+      <span class="type-tag tt-faq">FAQ + Diagnóstico</span>
+      <span class="pri pri-1">🔴 Prioridade máxima</span>
+    </div>
+    <div class="opp-meta">
+      <b>116 tickets</b> · <b>38,8% dúvida</b> · 42 instabilidades (pode ser bug real) · resolução mediana 42h<br>
+      Volume estável e alto: 34 (dez) → 34 (jan) → 32 (fev) — não está caindo naturalmente.<br>
+      Dúvidas: cliente não sabe se o problema é na conta ou na plataforma. Instabilidades: bug real que precisa de triagem.<br>
+      <b>Produto:</b> Plataforma (geral)
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">116 tickets</span>
+    <span class="badge b-r">→ Estável (alto)</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Checklist de autodiagnóstico antes de abrir ticket: "Senha expirada? Navegador atualizado? Certificado digital válido? Conta ativa?" — filtra as dúvidas e direciona instabilidades ao canal certo.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 5 -->
+<div class="opp-card">
+  <div class="opp-num">5</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Erro de permissão + Falha de acesso ao módulo</div>
+      <span class="type-tag tt-ss">Self-service guardião</span>
+      <span class="pri pri-2">🟠 Alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>88 tickets combinados</b> · Erro de permissão: 49% dúvida · Falha ao módulo: 24% insatisfação (produto bloqueado)<br>
+      Erro de permissão crescendo: 13 (dez) → 13 (jan) → 19 (fev).<br>
+      Solução típica: guardião precisa ajustar acesso do usuário — ação que poderia ser self-service.<br>
+      <b>Produto:</b> Plataforma + múltiplos módulos
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">88 tickets</span>
+    <span class="badge b-o">↗ Crescendo</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Mensagem de erro descritiva ao tentar acessar módulo sem permissão: "Você não tem acesso a X. Solicite ao administrador da conta." + botão de solicitação direto para o guardião.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 6 -->
+<div class="opp-card">
+  <div class="opp-num">6</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Certificado Digital</div>
+      <span class="type-tag tt-notif">Alerta proativo</span>
+      <span class="pri pri-2">🟠 Alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>66 tickets</b> · 40,9% dúvida · 31,8% solicitação de serviço (renovação) · resolução mediana 31h<br>
+      Tendência cadente (24 → 25 → 12) — mas concentrado em múltiplos produtos (Plataforma 21, LogOS 16, Catálogo 11).<br>
+      Natureza: cliente não sabe que o certificado venceu ou não sabe onde renovar.<br>
+      Dúvidas + solicitações = <b>73% são tickets evitáveis</b>
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">66 tickets</span>
+    <span class="badge b-g">↘ Caindo</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Notificação automática 30 e 7 dias antes do vencimento + link direto para renovação. Eliminaria a maioria das solicitações e dúvidas sem qualquer atendimento humano.
+    </div>
+  </div>
+</div>
+
+<!-- TIER 2 -->
+<div class="section"><div class="section-num">2</div><h2>Tier 2 — FAQ e Educação do Produto</h2><span class="section-tag">Dúvidas sobre como o produto funciona · FAQ + onboarding</span></div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Temas onde o cliente não entende uma regra ou funcionalidade do produto. A solução é comunicação melhor, não mudança técnica.</div>
+
+<!-- OPP 7 -->
+<div class="opp-card">
+  <div class="opp-num">7</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Regra de produto — Visualização Kanban / ETA</div>
+      <span class="type-tag tt-faq">FAQ + Tutorial</span>
+      <span class="pri pri-2">🟠 Alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>46 tickets</b> · <b>63% dúvida</b> · resolução mediana ~45h · concentrado em LogOS (17) e LogManager (13)<br>
+      Pergunta recorrente: <i>"como visualizar por data do ETA no Kanban?"</i> — funcionalidade existente mas não descoberta.<br>
+      Instabilidade baixa: a maioria é dúvida de uso, não bug.
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">46 tickets</span>
+    <span class="badge b-t">63% Dúvida</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Tutorial contextual "Como visualizar por ETA" acessível direto no Kanban + adicionar ordenação por ETA como opção padrão. Não precisa de mudança funcional complexa.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 8 -->
+<div class="opp-card">
+  <div class="opp-num">8</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Regra de produto — Filtros e Pesquisa</div>
+      <span class="type-tag tt-ux">Melhoria UX</span>
+      <span class="pri pri-2">🟠 Alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>56 tickets</b> · 46% dúvida · concentrado em NCM Intel 2.0 (24 tickets)<br>
+      Inclui: busca case-sensitive (maiúsculas obrigatórias) que gera resultado vazio sem aviso · filtros que só carregam após rolar a página até o fim · limitação de critérios de pesquisa.<br>
+      Bug de case-sensitive: <b>correção técnica simples com alto impacto de deflexão</b>
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">56 tickets</span>
+    <span class="badge b-o">NCM Intel 2.0</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      1) Corrigir busca case-sensitive (bug simples). 2) Mensagem contextual quando resultado vazio: "Tente buscar com letras maiúsculas" ou normalizar automaticamente. 3) Tooltip explicando limitação de filtros.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 9 -->
+<div class="opp-card">
+  <div class="opp-num">9</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Plano e Contrato</div>
+      <span class="type-tag tt-faq">Portal de autoatendimento</span>
+      <span class="pri pri-2">🟠 Alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>106 tickets</b> · 30% dúvida · 21% erro de processo (interno) · 17% solicitação de serviço<br>
+      Concentrado em NCM Intel 2.0 (47) e NCM Intel Import (15).<br>
+      Dúvidas: cliente não sabe o que o plano inclui, limites de pesquisa, diferença entre planos.<br>
+      Erros de processo interno (22 tickets): podem ser operações que o próprio cliente poderia fazer.
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">106 tickets</span>
+    <span class="badge b-y">Res. mediana: 29h</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Página "Meu Plano" com: features inclusas, limites de pesquisa/tabelas, comparativo com planos superiores. Reduz dúvidas e solicitações de upgrade que hoje passam pelo CS.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 10 -->
+<div class="opp-card">
+  <div class="opp-num">10</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Cadastrar / Editar Embarque</div>
+      <span class="type-tag tt-faq">Tutorial contextual</span>
+      <span class="pri pri-3">🟡 Média-alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>76 tickets</b> · 38% dúvida · concentrado em LogOS e LogManager<br>
+      Dúvidas: campo BL vs booking, embarque sem atualização, regra dos 10 dias de captação.<br>
+      Tendência cadente: 30 (dez) → 22 (jan) → 21 (fev) — melhora gradual mas ainda alto.
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">76 tickets</span>
+    <span class="badge b-g">↘ Caindo</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Tutorial inline no cadastro de embarque: tooltip explicando diferença BL vs Booking + banner "embarques com mais de 10 dias não serão rastreados" antes da confirmação.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 11 -->
+<div class="opp-card">
+  <div class="opp-num">11</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Cadastro / Troca de NCM</div>
+      <span class="type-tag tt-faq">FAQ</span>
+      <span class="pri pri-3">🟡 Média</span>
+    </div>
+    <div class="opp-meta">
+      <b>42 tickets</b> · 47,6% dúvida · resolução mediana 43h · sem insatisfação significativa<br>
+      Tendência instável: 18 (dez) → 8 (jan) → 11 (fev).<br>
+      Natureza: cliente não sabe como alterar NCM de produto existente ou qual NCM usar.
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">42 tickets</span>
+    <span class="badge b-t">47% Dúvida</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      FAQ "Como trocar o NCM de um produto" + link para tabela NCM oficial. Pode ser artigo na base de conhecimento linkado direto da tela de produto.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 12 -->
+<div class="opp-card">
+  <div class="opp-num">12</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Falha de Publicação</div>
+      <span class="type-tag tt-ux">Melhoria UX + FAQ</span>
+      <span class="pri pri-3">🟡 Média</span>
+    </div>
+    <div class="opp-meta">
+      <b>55 tickets</b> · 36% dúvida · concentrado em LogOS e Catálogo de Produtos<br>
+      Tendência crescente: 11 (dez) → 25 (jan) → 17 (fev).<br>
+      Natureza: cliente não entende pré-requisitos para publicar (campos obrigatórios, validações, status do processo).
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">55 tickets</span>
+    <span class="badge b-o">↗ Cresceu em jan</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Checklist de pré-publicação visível na tela: "Para publicar você precisa de: X, Y, Z." Validação inline antes de tentar publicar, com mensagem de erro específica por campo.
+    </div>
+  </div>
+</div>
+
+<!-- TIER 3 -->
+<div class="section"><div class="section-num">3</div><h2>Tier 3 — Automação de Processo</h2><span class="section-tag">Ações repetitivas que poderiam ser automatizadas no backend</span></div>
+<div style="font-size:11px;color:var(--muted);margin-bottom:14px;">Temas onde o agente executa uma ação manual repetitiva. A solução é automatizar o processo, não explicar ao cliente.</div>
+
+<!-- OPP 13 -->
+<div class="opp-card">
+  <div class="opp-num">13</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Extração Excel e PDF</div>
+      <span class="type-tag tt-api">Automação de plano</span>
+      <span class="pri pri-1">🔴 Prioridade máxima</span>
+    </div>
+    <div class="opp-meta">
+      <b>165 tickets</b> · 32% dúvida · 35% problema · <b>concentrado em NCM Intel 2.0 (105 tickets)</b><br>
+      Tendência cadente: 69 (dez) → 60 (jan) → 28 (fev) — melhorou mas ainda é o maior tema individual.<br>
+      Resolução média de <b>172h</b> — muito alta para algo que deveria ser self-service.<br>
+      Problema frequente: cliente tentou exportar mas não tem o recurso habilitado no plano → agente habilita manualmente.
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">165 tickets</span>
+    <span class="badge b-r">Res. média: 172h</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Ativação automática da exportação ao fazer upgrade de plano. FAQ "o que posso exportar no meu plano" inline. Para NCM Pro: tooltip sobre limite de tabelas antes da primeira exportação.
+    </div>
+  </div>
+</div>
+
+<!-- OPP 14 -->
+<div class="opp-card">
+  <div class="opp-num">14</div>
+  <div>
+    <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+      <div class="opp-title">Processamento de Dados</div>
+      <span class="type-tag tt-notif">Status em tempo real</span>
+      <span class="pri pri-2">🟠 Alta</span>
+    </div>
+    <div class="opp-meta">
+      <b>50 tickets</b> · 34% dúvida · 22% insatisfação · resolução média <b>237h</b> — pior do grupo<br>
+      Tendência oscilante: 15 (dez) → 21 (jan) → 10 (fev).<br>
+      Natureza: cliente não sabe se os dados estão sendo processados, há quanto tempo, ou se houve falha silenciosa.<br>
+      Insatisfação alta (22%) indica que além de não saber, o cliente fica frustrado com a falta de transparência.
+    </div>
+  </div>
+  <div class="opp-right">
+    <span class="badge b-p">50 tickets</span>
+    <span class="badge b-r">Res. média: 237h</span>
+    <div class="opp-action">
+      <strong>Ação recomendada</strong>
+      Barra de status de processamento visível para o cliente: "Seus dados foram recebidos em X — processamento previsto: Y horas." Notificação ao concluir. Elimina dúvidas e parte da insatisfação.
+    </div>
+  </div>
+</div>
+
+<!-- SUMÁRIO FINAL -->
+<div class="section"><div class="section-num">4</div><h2>Consolidado — Priorização por Impacto vs Esforço</h2><span class="section-tag">Roadmap sugerido</span></div>
+
+<div class="g2">
+  <div class="card">
+    <div class="ca ca-r"></div>
+    <div class="ctitle">🔴 Implementar primeiro — alto impacto, baixo esforço</div>
+    <table>
+      <thead><tr><th>#</th><th>Ação</th><th>Tickets/período</th><th>Tipo</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:monospace;color:var(--muted);">1</td><td style="font-weight:600;">Reset MFA/telefone pelo guardião</td><td><span class="badge b-r">89</span></td><td><span class="type-tag tt-ss">Self-service</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">2</td><td style="font-weight:600;">Checklist diagnóstico falha de acesso</td><td><span class="badge b-r">116</span></td><td><span class="type-tag tt-faq">FAQ</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">3</td><td style="font-weight:600;">Wizard cadastro usuário + CPF inline</td><td><span class="badge b-r">114</span></td><td><span class="type-tag tt-ss">Self-service</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">4</td><td style="font-weight:600;">Corrigir busca case-sensitive NCM</td><td><span class="badge b-o">56</span></td><td><span class="type-tag tt-ux">UX fix</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">5</td><td style="font-weight:600;">Alerta vencimento certificado digital</td><td><span class="badge b-o">66</span></td><td><span class="type-tag tt-notif">Notificação</span></td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px;">Total envolvido: <strong style="color:var(--lc-orange);">441 tickets</strong> — deflexão estimada: ~220 tickets/período</div>
+  </div>
+
+  <div class="card">
+    <div class="ca ca-y"></div>
+    <div class="ctitle">🟡 Segunda onda — médio esforço, médio impacto</div>
+    <table>
+      <thead><tr><th>#</th><th>Ação</th><th>Tickets/período</th><th>Tipo</th></tr></thead>
+      <tbody>
+        <tr><td style="font-family:monospace;color:var(--muted);">6</td><td style="font-weight:600;">Portal "Meu Plano" com limites e features</td><td><span class="badge b-y">106</span></td><td><span class="type-tag tt-faq">FAQ</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">7</td><td style="font-weight:600;">Ativação automática exportação por plano</td><td><span class="badge b-y">165</span></td><td><span class="type-tag tt-api">Automação</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">8</td><td style="font-weight:600;">Tutorial ETA/Kanban contextual</td><td><span class="badge b-y">46</span></td><td><span class="type-tag tt-faq">FAQ</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">9</td><td style="font-weight:600;">Status de processamento de dados</td><td><span class="badge b-y">50</span></td><td><span class="type-tag tt-notif">Notificação</span></td></tr>
+        <tr><td style="font-family:monospace;color:var(--muted);">10</td><td style="font-weight:600;">Checklist pré-publicação LogOS/Catálogo</td><td><span class="badge b-y">55</span></td><td><span class="type-tag tt-ux">UX</span></td></tr>
+      </tbody>
+    </table>
+    <div style="font-size:10px;color:var(--muted);margin-top:8px;">Total envolvido: <strong style="color:var(--lc-yellow);">422 tickets</strong> — deflexão estimada: ~170 tickets/período</div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ca ca-g"></div>
+  <div class="ctitle">Impacto acumulado estimado — se todas as ações forem implementadas</div>
+  <div class="g3" style="margin-top:8px;">
+    <div style="text-align:center;padding:12px;background:var(--faint);border-radius:8px;">
+      <div style="font-size:28px;font-weight:800;color:var(--lc-green);">~390</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">tickets/período eliminados<br>(deflexão conservadora 60%)</div>
+    </div>
+    <div style="text-align:center;padding:12px;background:var(--faint);border-radius:8px;">
+      <div style="font-size:28px;font-weight:800;color:var(--lc-purple2);">13%</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">redução no volume total<br>sem crescimento de equipe</div>
+    </div>
+    <div style="text-align:center;padding:12px;background:var(--faint);border-radius:8px;">
+      <div style="font-size:28px;font-weight:800;color:var(--lc-yellow);">~1.500h</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px;">horas de atendimento liberadas<br>por período para tickets complexos</div>
+    </div>
+  </div>
+  <div class="ib ib-g"><em>Prioridade de negócio:</em> as 5 ações de primeira onda sozinhas cobrem 441 tickets e são todas de <strong>baixo esforço de implementação</strong> — reset MFA pelo guardião, checklist de acesso, wizard de cadastro, correção de busca e alerta de certificado. Nenhuma exige mudança de arquitetura. O retorno pode ser visto no primeiro mês após implementação.</div>
+</div>
+
+</body>
+</html>
